@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -48,13 +50,13 @@ class _SignUpPageState extends State<SignUpPage> {
 
                 if (email.isEmpty || password.isEmpty) {
                   // 이메일 또는 비밀번호가 비어있는 경우 처리
-                  return;
+                  return null;
                 }
 
                 bool isExist = await isEmailAlreadyExist(email);
                 if (isExist) {
                   // 이미 존재하는 이메일인 경우 처리
-                  return;
+                  return null;
                 }
 
                 try {
